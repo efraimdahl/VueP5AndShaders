@@ -1,7 +1,6 @@
 
 let p5;
 let delegate
-let canvas
 export function main(_p5) {
   p5 = _p5
 
@@ -12,12 +11,12 @@ export function main(_p5) {
   p5.preload = _ =>{
     vert = require('~/assets/shaders/shader.vert'); //Load the shader components from the assets folder
     frag = require('~/assets/shaders/shader.frag');
-    console.log(vert.default)
+    console.log(vert)
   }
   
 
   p5.setup = _ => {
-    var canvas = p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL);
+    let canvas = p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL);
     canvas.parent("p5Canvas");
     //Webpack creates file objects, so we have to access the object field to get the raw string.
     mandel = p5.createShader(vert.default, frag.default); 
